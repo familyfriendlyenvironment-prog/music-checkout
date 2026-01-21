@@ -11,6 +11,7 @@ export default async function handler(req, res) {
   const productLabel = req.body["typeA"];
   const equipmentAnswer = req.body["doYou186"];
 
+
   // 2. Your product mapping
   const PRODUCTS = {
     "Basic Music Atmosphere Subscription – Small Business – 1 Zone": {
@@ -47,11 +48,12 @@ export default async function handler(req, res) {
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     line_items,
-    success_url: "https://yourdomain.com/success",
-    cancel_url: "https://yourdomain.com/cancel",
+   success_url: "https://www.jotform.com/thank-you",
+cancel_url: "https://www.jotform.com/cancel",
   });
 
   // 5. Redirect to Stripe Checkout
   res.writeHead(303, { Location: session.url });
   res.end();
 }
+
