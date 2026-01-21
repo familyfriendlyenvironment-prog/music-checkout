@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
   // 1. Read Jotform fields
-  const productLabel = req.body["select_your_product"];
-  const equipmentAnswer = req.body["do_you_already_have_our_streaming_box"];
+  const productLabel = req.body["typeA"];
+  const equipmentAnswer = req.body["doYou186"];
 
   // 2. Your product mapping
   const PRODUCTS = {
